@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   internetbanking:
-    image: panakjsharma72/ib-image
+    image: pankajsharma72/ib-image
     container_name: ib-container
     ports:
       - "81:80"
