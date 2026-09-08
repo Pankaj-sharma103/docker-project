@@ -29,7 +29,7 @@ services:
       - /var/lib/insaurance
   loans:
     image: pankajsharma72/loans-image
-    container_image: loans-cont
+    container_name: loans-cont
     ports:
       - "84:80"
     deploy:
