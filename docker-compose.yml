@@ -16,7 +16,7 @@ services:
       - "82:80"
     deploy:
       replicas: 3
-    volume:
+    volumes:
       - /var/lib/mobilebanking
   insaurance:
     image: pankajsharma72/ins-image
@@ -25,7 +25,7 @@ services:
       - "83:80"
     deploy:
       replicas: 3
-    volume:
+    volumes:
       - /var/lib/insaurance
   loans:
     image: pankajsharma72/loans-image
@@ -34,5 +34,5 @@ services:
       - "84:80"
     deploy:
       replicas: 3
-    volume:
+    volumes:
       - /var/lib/loan
