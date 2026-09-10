@@ -1,0 +1,32 @@
+pipeline{
+    agent any
+    stages{
+        stage('checkout'){
+            steps{
+                git branch: 'main',
+                url: 'https://github.com/Pankaj-sharma103/docker-project.git'
+            }
+        }
+        stage('build-image'){
+            steps{
+                sh 'docker build -t $image .'
+            }
+        }
+        stage('tagging'){
+            steps{
+                sh 'docker tag $image $repo'
+            }
+        }
+        stage('dockerhub'){
+            steps{
+                sh 'docker login -u pankajsharma72 -p $password'
+                sh 'docker push $repo'
+            }
+        }
+        stage('deploy'){
+            steps{
+                sh 'docker stack deploy -c docker-compose.yml bank'
+            }
+        }
+    }
+}
